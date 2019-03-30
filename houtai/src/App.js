@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 /**  import logo from './logo.svg';  */
-import './App.css';
+/* import './App.css';  */
 
 
 import { Menu, Icon } from 'antd';
@@ -74,7 +74,7 @@ class Sider extends React.Component {
     }
   }
 
-  ReactDOM.render(<Sider />, mountNode);
+
 
 
 
