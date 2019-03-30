@@ -1,82 +1,84 @@
-import React, { Component } from 'react';
-/**  import logo from './logo.svg';  */
-import './App.css';
 
 
-import { Menu, Icon } from 'antd';
+import React from 'react';
 
-const SubMenu = Menu.SubMenu;
+import 'antd/dist/antd.css';
+import './index.css';
+import {
+  Layout, Menu, Breadcrumb, Icon,
+} from 'antd';
 
-
-
-
-class Sider extends React.Component {
-
- 
- 
-      rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-    
-      state = {
-        openKeys: ['sub1'],
-      };
-    
-      onOpenChange = (openKeys) => {
-        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-        if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-          this.setState({ openKeys });
-        } else {
-          this.setState({
-            openKeys: latestOpenKey ? [latestOpenKey] : [],
-          });
-        }
-      }
+const { SubMenu } = Menu;
+const { Header, Content, Sider,Footer } = Layout;
 
 
-    render() {
-      return (
-        <div className="App">
-       <Menu
-        mode="inline"
-        openKeys={this.state.openKeys}
-        onOpenChange={this.onOpenChange}
-        style={{ width: 256 }}
-      >
-        <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-          <Menu.Item key="1">Option 1</Menu.Item>
-          <Menu.Item key="2">Option 2</Menu.Item>
-          <Menu.Item key="3">Option 3</Menu.Item>
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-          <SubMenu key="sub3" title="Submenu">
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-        </SubMenu>
-        <SubMenu key="sub4" title={<span><Icon type="setting" /><span>Navigation Three</span></span>}>
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
-        </SubMenu>
-      </Menu>
-  
-      </div> 
+class App extends React.Component {
 
-          
-       
-       
-  
-  
-      );
-    }
+
+  render() {
+    return (
+      <div className="App">
+          <Layout>
+          <Header className="header">
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              style={{ lineHeight: '64px' }}
+            >
+              <Menu.Item key="1"><Icon type="robot" />好物后台管理系统</Menu.Item>
+             
+            </Menu>
+          </Header>
+          <Content style={{ padding: '0 50px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>商品</Breadcrumb.Item>
+              <Breadcrumb.Item>用户</Breadcrumb.Item>
+              <Breadcrumb.Item>订单</Breadcrumb.Item>
+            </Breadcrumb>
+            <Layout style={{ padding: '24px 0', background: '#fff' }}>
+              <Sider width={200} style={{ background: '#fff' }}>
+                <Menu
+                  mode="inline"
+                  defaultSelectedKeys={['1']}
+                  defaultOpenKeys={['sub1']}
+                  style={{ height: '100%' }}
+                >
+                  <SubMenu key="sub1" title={<span><Icon type="appstore" />商品管理</span>}>
+                    <Menu.Item key="1">商品列表</Menu.Item>
+                    <Menu.Item key="2">商品分类</Menu.Item>
+                    <Menu.Item key="3">添加商品</Menu.Item>
+                  
+                  </SubMenu>
+                  <SubMenu key="sub2" title={<span><Icon type="user" />用户管理</span>}>
+                    <Menu.Item key="5">用户列表</Menu.Item>
+                    <Menu.Item key="6">添加用户</Menu.Item>
+                   
+                  </SubMenu>
+                  <SubMenu key="sub3" title={<span><Icon type="solution" />订单管理</span>}>
+                    <Menu.Item key="9">订单管理</Menu.Item>
+                  
+                  </SubMenu>
+                </Menu>
+              </Sider>
+              <Content style={{ padding: '0 24px', minHeight: 280 }}>
+                Content
+              </Content>
+            </Layout>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            好物 ©2019 Created by BJM,LLM
+          </Footer>
+        </Layout>
+  </div>
+
+   
+    );
   }
-
-  ReactDOM.render(<Sider />, mountNode);
-
-
+}
+          
 
 
-export default App;
+
+/**/export default App;
