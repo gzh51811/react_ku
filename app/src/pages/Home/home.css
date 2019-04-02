@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .ant-carousel .slick-slide {
     text-align: center;
     height: 160px;
@@ -9,3 +13,57 @@
   .ant-carousel .slick-slide h3 {
     color: #fff;
   }
+  .Home_contarin{
+   width: 100%;
+   height: 100%;
+  }
+  .Home_top{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    line-height: 2.13888889rem;
+    height: 2.13888889rem;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0;
+  }
+  .Home_top li{
+  width: 1.5rem;
+  text-align: center;
+   margin: 0 1.2rem;
+   height: 100%;
+  }
+  .active-tab {
+    border-bottom: 3px solid #FFD914;
+    margin: 0 auto;
+    width: 40%;
+}
+.Home_gon{
+  width: 100%;
+  height: 2.13888889rem;
+  background: rgb(253, 246, 210);
+}
+.Home_gon p{
+  width: 100%;
+  height: 2.13888889rem;
+  line-height: 2.13888889rem;
+  padding-left: .666667rem;
+}
+.recommend-new-title {
+  text-align: center;
+  font-size: .88888889rem;
+  padding-top: 1.94444444rem;
+  padding-bottom: .83333333rem;
+}
+.recommend-new-bottom {
+  padding-bottom: 1.94444444rem;
+  margin-top: 1.44444444rem;
+  text-align: center;
+}
+.recommend-new-content {
+  padding: 0 .55555556rem;
+  background: -webkit-linear-gradient(#F8F8F8,#FFF);
+  background: -o-linear-gradient(#F8F8F8,#FFF);
+  background: -moz-linear-gradient(#F8F8F8,#FFF);
+  background: linear-gradient(#F8F8F8,#FFF);
+}

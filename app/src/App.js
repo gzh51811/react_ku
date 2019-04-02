@@ -5,7 +5,8 @@ import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
 import Cart from './pages/Cart/Cart';
 import Login from './pages/Login/Login';
-import { Menu, Icon } from 'antd';
+import { Menu, Icon, Carousel} from 'antd';
+import 'antd/dist/antd.css'; 
 import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
 class App extends Component {
   constructor() {
