@@ -6,8 +6,8 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    // let { title } = ctx.request.body;
-    var res =await db.find('cart');
+    let {  phone} = ctx.request.body;
+    var res =await db.find('user1',{phone});
     if (res) {
         ctx.body = {
             are:res.length,

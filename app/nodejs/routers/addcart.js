@@ -6,12 +6,11 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    let { id,images,name,price,brand} = ctx.request.body;
-    var res =await db.insert('cart',{id,images,name,price,brand});
+    let { itemId,imageUrl,name, minPrice, zongjia,shuliang} = ctx.request.body;
+    var res =await db.insert('cart',{ itemId,imageUrl,name, minPrice, zongjia,shuliang});
     if (res) {
         ctx.body = {
             are:res.length,
-            //arr: res
         }
     } else {
         ctx.body = {

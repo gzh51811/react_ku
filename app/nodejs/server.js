@@ -7,7 +7,7 @@ const routers = require('./routers');
 // 创建koa应用
 const app = new Koa();//app.context
 app.use(cors());
-app.context.myname = 'react';
+app.context.myname = 'vuepr';
 
 // 创建静态资源服务
 app.use(static('../'));
@@ -20,7 +20,7 @@ app.use(cors({
         if (ctx.url === '/test') {
             return false;
         }
-        return 'http://localhost:1814';
+        return 'http://localhost:9001';
     },
     exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
     maxAge: 5,
@@ -28,6 +28,6 @@ app.use(cors({
     allowMethods: ['GET', 'POST', 'DELETE'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
-app.listen(1814, () => {
+app.listen(1814,()=>{
     console.log('server is running on http://localhost:1814');
 });

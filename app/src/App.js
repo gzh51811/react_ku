@@ -5,8 +5,10 @@ import List from './pages/List/List';
 import Goods from './pages/Goods/Goods';
 import Cart from './pages/Cart/Cart';
 import Login from './pages/Login/Login';
-import { Menu, Icon, Carousel} from 'antd';
-import 'antd/dist/antd.css'; 
+import Zuce from './pages/Login/zuce';
+import User from './pages/Login/user'
+import { Menu, Icon, Carousel,SubMenu} from 'antd';
+
 import { Route, Redirect, Switch, NavLink, withRouter } from 'react-router-dom';
 class App extends Component {
   constructor() {
@@ -41,32 +43,47 @@ class App extends Component {
     }
   }
   handleClick = (e) => {
-  
     this.setState({
       current: e.key,
     }, () => {
-      this.props.history.push('/' + e.key);
+      console.log( e.key==='Cart');
+     
+      if(e.key==='Cart'){
+        let user = sessionStorage.getItem('user');
+        if (!user) {
+            alert('您还没有登录，请先登录亲');
+          let {history}=this.props;
+          history.push({
+              pathname:'/login/'
+          });
+            user = {};
+        }else{
+          this.props.history.push('/' + e.key);
+        }
+        }else{
+          this.props.history.push('/' + e.key);
+        }
 
     });
   }
   render() {
     return (
       <div className='container'>
-
         <Menu
           onClick={this.handleClick}
           className='item-user'
-          selectedKeys={[this.state.current]}
           mode="horizontal"
         >
           {
-            this.state.navs.map(item => <Menu.Item key={item.name}></Menu.Item>)
+            this.state.navs.map(item => <Menu.Item key={item.name}  style={{ border:'none'}}></Menu.Item>)
           }
 
         </Menu>
 
         <Switch>
           <Route path="/home" component={Home} />
+          <Route path="/zuce" component={Zuce} />
+          <Route path="/user" component={User} />
           <Route path="/list" component={List} />
           <Route path="/login" component={Login} />
           <Route path="/goods/:id" component={Goods} />

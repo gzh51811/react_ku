@@ -6,11 +6,11 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    let { title } = ctx.request.body;
-    var res =await db.find('lister',{title});
+    let { name } = ctx.request.body;
+    var res = await db.find('list', { name });
     if (res) {
         ctx.body = {
-            are:res.length,
+            are: res.length,
             arr: res
         }
     } else {

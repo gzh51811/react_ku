@@ -1,0 +1,130 @@
+.pr {
+    position: relative;
+}
+.personal{
+    height: 30rem;
+    overflow: auto;
+}
+.personal .personal-bg {
+    position: relative;
+    height: 7.0rem;
+    text-align: center;
+    overflow: hidden;
+    border-top: 1px solid #b4b1b1;
+    /* margin-top: -5rem; */
+    /* padding-top: 1.86111111rem; */
+}
+.personal .user-avatar {
+    width: 3.88888889rem;
+    height: 3.88888889rem;
+    position: absolute;
+    top: 1.2rem;
+    left: 8rem;
+}
+.personal .user-avatar img {
+    width: 100%;
+    border-radius: 1.94444444rem;
+}
+.personal .user-name {
+    text-align: center;
+    font-size: .98888889rem;
+    color: #fff;
+    position: absolute;
+    top: 5.23333333rem;
+    width:100%;
+}
+.personal .second-section {
+    padding-bottom: .27777778rem;
+}
+.vertical-box {
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    padding: .88888889rem .83333333rem;
+    font-size: .77777778rem;
+    color: #4A4A4A;
+    margin-bottom: 1px;
+}
+
+.clearfix {
+    zoom: 1;
+}
+.fr {
+    float: right;
+}
+.personal .select-all-order {
+    padding-right: .7444444rem;
+    background: url(../../img/icon-right-arrow.png) no-repeat;
+    background-position: top right;
+    background-size: .47222222rem;
+}
+.personal .order-state-list {
+    margin-top: .83333333rem;
+}
+.personal .order-state-list .state1 {
+    background-image: url(../../img/icon-order-1.png);
+}
+.personal .order-state-list span {
+    width: 4.01388889rem;
+    height: 2.22222222rem;
+    padding-top: 1.38888889rem;
+    background-size: 1.38888889rem 1rem;
+    background-repeat: no-repeat;
+    background-position: top center;
+    color: #777;
+}
+.item-list .item-list-state-name, .personal .bottom, .personal .order-state-list span {
+    display: inline-block;
+    text-align: center;
+}
+.personal .order-state-list .badge {
+    right: 1.25rem;
+}
+/* .badge, .badge-box>.badge {
+    position: absolute;
+    top: -.27777778rem;
+    right: -.27777778rem;
+    font-style: normal;
+    padding: .11111111rem .22222222rem;
+    background: #E75058;
+    font-weight: 400;
+    font-size: .44444444rem;
+} */
+.personal .order-state-list .state2 {
+    background-image: url(../../img/icon-order-2.png);
+}
+.personal .order-state-list .state3 {
+    background-image: url(../../img/icon-order-3.png);
+    background-size: 1.52777778rem 1.11111111rem;
+}
+.personal .order-state-list .state4 {
+    background-image: url(../../img/icon-order-4.png);
+}
+.item-list .item-list-state-name, .personal .bottom, .personal .order-state-list span {
+    display: inline-block;
+    text-align: center;
+}
+.personal .bottom .bottom-title {
+    margin: 1.16666667rem 0 0;
+}
+.personal .bottom .bottom-box:nth-child(1) {
+    margin-left: 2rem;
+}
+.personal .bottom .bottom-box {
+    line-height: 2rem;
+    float: left;
+}
+.personal .bottom .bottom-box:nth-child(2) {
+    padding-top: .1rem;
+    margin-left: 2.83333333rem;
+}
+.personal .bottom .bottom-box:nth-child(3) {
+    padding-top: .2rem;
+    margin-left: 2.83333333rem;
+}
+.personal .bottom .bottom-box:nth-child(1) img {
+    width: 1.88888889rem;
+}
+.personal .bottom .bottom-box:nth-child(2) img, .personal .bottom .bottom-box:nth-child(3) img {
+    width: 2.5rem;
+}

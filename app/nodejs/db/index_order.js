@@ -72,7 +72,16 @@ exports.find2 = async (colName, query, pai) => {
     // 返回查询结果.toArray()
     return res1;
 }
-
+exports.aggregate = async (colName, que3, que4) => {
+    let { db, client } = await connect();
+    let collection = db.collection(colName);
+    // db.collectionname.aggregate({$match: {"msg.name": "name1"}}, {$project: {_id: 0, timestamp: "$timestamp", msg: {$filter: {input: "$msg", as: "msg", cond: {$eq: ["$$msg.name", "name1"]}}}}})
+    // var res = await collection.aggregate('list', { $match: { "items.itemId": itemId } }, { $project: { _id: 0, timestamp: "$timestamp", items: { $filter: { input: "$items", as: "items", cond: { $eq: ["$$items.itemId", itemId] } } } } }).toArray();
+    var res = await collection.aggregate(que3, que4).toArray();
+    client.close();
+    // 返回查询结果.toArray()
+    return res;
+}
 // insert('user',[{name:'xxx',age:20},{name:'xx2',age:18}]);
 // delete('user',{age:{$lt:18}});
 //更新指定字段

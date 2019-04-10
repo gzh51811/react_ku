@@ -6,11 +6,11 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    let { title } = ctx.request.body;
-    var res =await db.find('gai');
+    let { type } = ctx.request.body;
+    var res = await db.find('list', { type });
     if (res) {
         ctx.body = {
-            are:res.length,
+            are: res.length,
             arr: res
         }
     } else {

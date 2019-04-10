@@ -6,9 +6,9 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    let { id} = ctx.request.body;
-    var res =await db.delete('cart',{id});
-    //console.log(id);
+    let {  itemId} = ctx.request.body;
+    var res1 =await db.delete('cart',{itemId});
+    var  res =await db.find('cart');
     if (res) {
         ctx.body = {
             are:res.length,

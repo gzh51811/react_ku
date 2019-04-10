@@ -6,12 +6,12 @@ var router = new Router();
  * ctx
  */
 router.post('/', async (ctx, next) => {
-    // let { title } = ctx.request.body;
-    var res =await db.find('cart');
+    let { phone,pwd} = ctx.request.body;
+    var res =await db.insert('user1',{ phone,pwd});
     if (res) {
         ctx.body = {
             are:res.length,
-            arr: res
+            //arr: res
         }
     } else {
         ctx.body = {
