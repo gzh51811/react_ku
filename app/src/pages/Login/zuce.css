@@ -1,0 +1,47 @@
+.register-content {
+    background-color: #fff;
+    height: 32.05555556rem;
+    position: relative;
+    margin-top: -5rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding-top: 7.27777778rem;
+}
+.logoImage {
+    width: 5.36111111rem;
+    height: 2.19444444rem;
+    display: block;
+   margin-left: 6.5rem;
+}
+.login-content-login {
+    padding: 0 2.36111111rem!important;
+}
+.log-con-num {
+    margin-top: 3.33333333rem;
+    border-bottom: 1px solid #EAEAEA;
+}
+.log-con-pw {
+    margin-top: 1.38888889rem;
+    border-bottom: 1px solid #EAEAEA;
+}
+.reLabel {
+    margin-top: .55555556rem;
+    font-size: .66666667rem;
+    color: #9C9C9C;
+}
+.register .register-content .login-content-login .log-con-num .log-con-user img, .register .register-content .login-content-login .log-con-pw .log-con-user img {
+    margin-bottom: .27777778rem;
+    width: 1.05555556rem;
+    height: 1.19444444rem;
+}
+.reBtn {
+    border: 1px solid #9C9C9C!important;
+    margin-top: -1.8rem!important;
+    float: right;
+    width: 3.55555556rem;
+    height: 1.66666667rem;
+    padding: 0;
+    font-size: .393333rem;
+}
