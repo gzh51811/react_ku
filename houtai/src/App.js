@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, message } from 'antd';
 
 import GoodList from "./pages/GoodList";
 import AddGood from "./pages/AddGood";
@@ -10,21 +10,28 @@ import AddUser from "./pages/AddUser";
 import OrderList from "./pages/OrderList";  //订单列表
 import Classify from "./pages/Classify";
 
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import withAxios from "./hoc/withAxios";
+
+
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 const { Header, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
+
+
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
       collapsed: false,
+      imporuser: true,
       navs1: [
         {
           text: '商品列表',
           name: 'GoodList',
-          path: '/goodslist',
+          path: '/goodlist',
         },
         {
           text: '添加商品',
@@ -58,7 +65,8 @@ class App extends Component {
           path: '/orderlist',
         }
       ],
-      current: 'GoodList'
+      current: 'GoodList',
+      username: 'fff'
     };
   }
 
@@ -67,6 +75,12 @@ class App extends Component {
       collapsed: !this.state.collapsed,
     });
   }
+
+  outClick = () => {
+    localStorage.removeItem('user');
+    message.success('退出成功');
+    this.props.history.push('/login');
+  }
   handleClick = (e) => {
     this.setState({
       current: e.key
@@ -74,7 +88,41 @@ class App extends Component {
       this.props.history.push('/' + e.key.toLowerCase())
     })
   }
+
+  cke() {
+    var n = JSON.parse(localStorage.getItem('user'));
+    if (n) {
+      this.setState({
+        username: n.name
+      })
+    }
+    else {
+      this.props.history.push('/login');
+    }
+  }
+
+  impor() {
+    var n = JSON.parse(localStorage.getItem('user'));
+    if (n) {
+      this.props.axios.get('/userimport', {
+        params: {
+          id: n._id
+        }
+      }).then(res => {
+        this.setState({
+          imporuser: res.data
+        })
+      })
+    }
+  }
+
+  componentWillMount() {
+    this.cke();
+    this.impor();
+  }
+
   render() {
+    // var paths = this.props.location.pathname;
     return (
       <Layout>
         <Sider
@@ -83,7 +131,6 @@ class App extends Component {
           collapsed={this.state.collapsed}
         >
           <div className="logo" />
-
           <Menu
             // defaultSelectedKeys={['GoodList']}
             // defaultOpenKeys={['sub1']}
@@ -91,18 +138,25 @@ class App extends Component {
             theme="dark"
             inlineCollapsed={this.state.collapsed}
           >
+            <Menu.Item key={this.state.username} >
+              <Icon type="user" />
+              <span>{this.state.username}</span>
+              <span onClick={this.outClick} style={{ float: 'right' }}>退出</span>
+            </Menu.Item>
             <SubMenu key="sub1" title={<span> <Icon type="pie-chart" /><span>商品</span></span>}>
               {
                 this.state.navs1.map(item => <Menu.Item key={item.name} onClick={this.handleClick}>{item.text}</Menu.Item>
                 )
               }
             </SubMenu>
-            <SubMenu key="sub2" title={<span><Icon type="user" /><span>用户</span></span>}>
-              {
-                this.state.navs2.map(item => <Menu.Item key={item.name} onClick={this.handleClick}>{item.text}</Menu.Item>
-                )
-              }
-            </SubMenu>
+            {
+              this.state.imporuser === true ? <SubMenu key="sub2" title={<span><Icon type="team" /><span>用户</span></span>}>
+                {
+                  this.state.navs2.map(item => <Menu.Item key={item.name} onClick={this.handleClick}>{item.text}</Menu.Item>
+                  )
+                }
+              </SubMenu> : <></>
+            }
             <Menu.Item key={this.state.navs3[0].name} onClick={this.handleClick}>
               <Icon type="shopping-cart" />
               <span>{this.state.navs3[0].text}</span>
@@ -119,14 +173,14 @@ class App extends Component {
             />
           </Header>
           <Switch>
-            <Route path="/goodslist" component={GoodList} exact />
+            <Route path="/goodlist" component={GoodList} exact />
             <Route path="/addgood" component={AddGood} />
             <Route path="/classify" component={Classify} />
             <Route path="/userlist" component={UserList} />
             <Route path="/adduser" component={AddUser} />
             <Route path="/editgood" component={EditGood} />
             <Route path="/orderlist" component={OrderList} />
-            <Redirect from="/" to="/goodslist" />{/*重定向 */}
+
           </Switch>
         </Layout>
       </Layout>
@@ -134,5 +188,9 @@ class App extends Component {
     );
   }
 }
-App = withRouter(App)
+
+App = withAxios(App);
+App = withRouter(App);
+
+
 export default App;
