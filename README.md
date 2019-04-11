@@ -9,7 +9,7 @@
 
 ### 使用技术：
 ```
-UI框架：
+UI框架：antd
 语言：React、Nodejs
 数据库：MongoDB
 ```
@@ -17,9 +17,13 @@ UI框架：
 ### 演示地址：
 
 ```
-官网：
+官网：http://www.myhaowu.com
 
-上线地址：
+app上线地址：http://39.96.178.237:1814
+
+后台管理系统上线地址：
+
+app下载地址：https://service.dcloud.net.cn/build/download/835a4f00-5bfd-11e9-be4a-0549798b26fc
 
 ```
 
