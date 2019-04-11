@@ -1,0 +1,27 @@
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(../../assets/timg.jpg);
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+h1{
+    text-align: center;
+    color: #fff !important;
+    margin-top: 100px !important;
+}
+.main .login-form {
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-75%);
+  }
+
+.main .login-form-forgot {
+    float: right;
+}
+.main .login-form-button {
+    width: 100%;
+}
