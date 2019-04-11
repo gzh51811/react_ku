@@ -23,7 +23,7 @@ app上线地址：http://39.96.178.237:1814
 
 后台管理系统上线地址：
 
-app下载地址：https://service.dcloud.net.cn/build/download/835a4f00-5bfd-11e9-be4a-0549798b26fc
+app下载地址：https://service.dcloud.net.cn/build/download/2ae7ab10-5c27-11e9-ae93-1dc47de82b80
 
 ```
 
